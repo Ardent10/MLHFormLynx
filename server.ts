@@ -39,7 +39,8 @@ async function startServer() {
       context: async () => {
       const db = getCachedDb();
       const usersCollection: Collection = db.collection("users");
-      return { usersCollection };
+      const mlhFellowshipCollection: Collection = db.collection("mlh-fellowship");
+      return { usersCollection, mlhFellowshipCollection };
     },
     })
   );

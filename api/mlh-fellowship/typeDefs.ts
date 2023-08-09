@@ -1,7 +1,8 @@
 // Define the GraphQL schema for the MLH Fellowship API
-const typeDefs = `#graphql
+export const typeDefs = `#graphql
   type MLHFellowship {
     id: ID!
+    
     resume: Boolean
     github: Boolean
     linkedin: Boolean
@@ -78,14 +79,14 @@ const typeDefs = `#graphql
   }
 
   extend type Query {
-    getMLHFellowship(id: ID!): MLHFellowship
-    getAllMLHFellowships: [MLHFellowship]
+    getMLHFellowshipForm(id: ID!): MLHFellowship
+    getAllMLHFellowshipsForm: [MLHFellowship]
   }
 
   extend type Mutation {
-    createMLHFellowship(input: MLHFellowshipInput!): MLHFellowship
-    updateMLHFellowship(id: ID!, input: MLHFellowshipInput!): MLHFellowship
-    deleteMLHFellowship(id: ID!): ID
+    createMLHFellowshipForm(input: MLHFellowshipInput!): MLHFellowship
+    updateMLHFellowshipForm(id: ID!, input: MLHFellowshipInput!): MLHFellowship
+    deleteMLHFellowshipForm(id: ID!): ID
   }
 `;
 

@@ -136,4 +136,4 @@ const mlhFellowshipResolver = {
   },
 };
 
-export default mlhFellowshipResolver;
+export { mlhFellowshipResolver };
