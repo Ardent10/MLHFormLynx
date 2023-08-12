@@ -2,11 +2,12 @@
 export const typeDefs = `#graphql
   type MLHFellowship {
     id: ID!
-    
-    resume: Boolean
-    github: Boolean
-    linkedin: Boolean
-    portfolio: Boolean
+    user_id: String
+    userDetails: User
+    resume: String
+    github: String
+    linkedin: String
+    portfolio: String
     country: String
     workingCountry: String
     workPermit: String
@@ -41,10 +42,11 @@ export const typeDefs = `#graphql
   }
 
   input MLHFellowshipInput {
-    resume: Boolean
-    github: Boolean
-    linkedin: Boolean
-    portfolio: Boolean
+    user_id: String
+    resume: String
+    github: String
+    linkedin: String
+    portfolio: String
     country: String
     workingCountry: String
     workPermit: String

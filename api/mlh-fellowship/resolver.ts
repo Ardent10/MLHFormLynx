@@ -40,6 +40,7 @@ interface MLHFellowship {
 }
 
 interface MLHFellowshipInput {
+  user_id: string;
   resume: boolean;
   github: boolean;
   linkedin: boolean;
@@ -104,12 +105,12 @@ const mlhFellowshipResolver = {
       { input }: { input: MLHFellowshipInput },
       { mlhFellowshipCollection }: { mlhFellowshipCollection: Collection }
     ) => {
-      const newFellowship: MLHFellowship = {
-        id: "some_generated_id", // You can generate a new ID here
-        ...input,
-      };
-      await mlhFellowshipCollection.insertOne(newFellowship);
-      return newFellowship;
+     const newFellowship: MLHFellowship = {
+       id: new ObjectId().toString(),
+       ...input,
+     };
+     await mlhFellowshipCollection.insertOne(newFellowship);
+     return newFellowship;
     },
     updateMLHFellowshipForm: async (
       _parent: any,
@@ -132,6 +133,23 @@ const mlhFellowshipResolver = {
     ) => {
       await mlhFellowshipCollection.deleteOne({ _id: new ObjectId(id) });
       return id;
+    },
+  },
+
+  MLHFellowship: {
+    userDetails:async(
+      _parent: any,
+      { input }: { input: MLHFellowshipInput },
+      { usersCollection }: { usersCollection: Collection }
+    ) =>{
+      try {
+        const userDetails =  await usersCollection.findOne({
+          id: _parent.user_id,
+        });
+        return userDetails;
+      } catch (error:any) {
+       throw new Error(error);
+      }
     },
   },
 };

@@ -24,7 +24,11 @@ Before getting started with MLHFormLynx, make sure you have the following prereq
 3. Set up environment variables:
    - Create a `.env` file in the root directory.
    - Configure your MongoDB connection string: `MONGODB_URI=<your-mongodb-connection-string>`
-   - Add any other necessary environment variables.
+   - Add any other necessary environment variables:
+     - `JWT_SEC_KEY`: Secret key used for JWT token encryption and validation.
+     - `PROJECT_PASSWORD`: Password used for authentication or authorization purposes.
+     - `DB_NAME`: Name of the MongoDB database where the data will be stored.
+     - `PORT`: Port on which the GraphQL server will run.
 4. Start the server: `npm start`
 
 ## Usage
