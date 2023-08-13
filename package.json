@@ -5,7 +5,6 @@
   "author": "Zakariya",
   "license": "MIT",
   "private": false,
-  "type" : "module",
   "scripts": {
     "dev": "nodemon server.ts"
   },
