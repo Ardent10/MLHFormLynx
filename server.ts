@@ -49,18 +49,8 @@ async function startServer() {
   await new Promise<void>((resolve) =>
     httpServer.listen({ port: 4000 }, resolve)
   );
-  console.log(`🚀 Server ready at http://localhost:4000/`);
+  console.log(`🚀 Server ready at on Port`,port);
 
-  // await startStandaloneServer(server, {
-  //   listen: { port: 4000 },
-  //   context: async () => {
-  //     const db = getCachedDb();
-  //     const usersCollection: Collection = db.collection("users");
-  //     return { usersCollection };
-  //   },
-  // }).then(({ url }) => {
-  //   console.log(`Server ready at ${url}`);
-  // });
 }
 
 startServer().catch((err) => console.error(err));
