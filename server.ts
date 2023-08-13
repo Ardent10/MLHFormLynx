@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 import { ApolloServer } from "@apollo/server";
 import { ConnectMongoDb, getCachedDb } from "./mongodb";
-import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs, resolvers } from "./graphql/schema";
 import { Collection } from "mongodb";
 import express from "express";
@@ -30,18 +29,18 @@ async function startServer() {
 
   await server.start();
 
-
   app.use(
     "/api/graphql",
     cors<cors.CorsRequest>(),
     bodyParser.json({ limit: "50mb" }),
     expressMiddleware(server, {
       context: async () => {
-      const db = getCachedDb();
-      const usersCollection: Collection = db.collection("users");
-      const mlhFellowshipCollection: Collection = db.collection("mlh-fellowship");
-      return { usersCollection, mlhFellowshipCollection };
-    },
+        const db = getCachedDb();
+        const usersCollection: Collection = db.collection("users");
+        const mlhFellowshipCollection: Collection =
+          db.collection("mlh-fellowship");
+        return { usersCollection, mlhFellowshipCollection };
+      },
     })
   );
 
@@ -49,8 +48,7 @@ async function startServer() {
   await new Promise<void>((resolve) =>
     httpServer.listen({ port: 4000 }, resolve)
   );
-  console.log(`🚀 Server ready at on Port`,port);
-
+  console.log(`🚀 Server ready at on Port`, port);
 }
 
 startServer().catch((err) => console.error(err));
