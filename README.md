@@ -1,6 +1,10 @@
-# MLHFormLynx - GraphQL TypeScript Backend for MLH Fellowship Forms
+ <img src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-color.svg" alt="MLHFormLynx Logo" style="width: auto; height: auto;"/>  
+ 
+ # MLHFormLynx - GraphQL TypeScript Backend for MLH Fellowship Forms
 
 MLHFormLynx is a GraphQL TypeScript backend designed to streamline the submission and management of MLH Fellowship application forms. This project offers an alternative to outsourcing form submissions by providing a NoSQL MongoDB database integration. With MLHFormLynx, MLH Fellowship can maintain control over their form data while benefiting from the flexibility and scalability of MongoDB.
+
+![Alt text](image.png)
 
 ## Features
 
